@@ -22,18 +22,18 @@ int prec(char c)
 string infixToPostfix(string s)
 {
 	stack st;
-	st.push('N');
+	st.push('#');
 	int l = s.length();
 	string ns;
 	for (int i = 0; i < l; i++)
 	{
 		// If the scanned character is an operand, add it to output string.
-		if ((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= '0' && s[i] <= '9')) {
+		if ((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z') || isdigit(s[i])) {
 			ns += s[i];
-			
-			if (!((s[i+1] >= 'a' && s[i+1] <= 'z') || (s[i+1] >= 'A' && s[i+1] <= 'Z') || (s[i+1] >= '0' && s[i+1] <= '9')))
+
+			if (!((s[i+1] >= 'a' && s[i+1] <= 'z') || (s[i+1] >= 'A' && s[i+1] <= 'Z') || isdigit(s[i+1])))
 				ns += ' ';
-				
+
 		}
 		// If the scanned character is an ‘(‘, push it to the stack.
 		else if (s[i] == '(')
@@ -44,7 +44,7 @@ string infixToPostfix(string s)
 		// until an ‘(‘ is encountered.
 		else if (s[i] == ')')
 		{
-			while (st.top() != 'N' && st.top() != '(')
+			while (st.top() != '#' && st.top() != '(')
 			{
 				char c = st.top();
 				st.pop();
@@ -60,7 +60,7 @@ string infixToPostfix(string s)
 
 		//If an operator is scanned
 		else {
-			while (st.top() != 'N' && prec(s[i]) <= prec(st.top()))
+			while (st.top() != '#' && prec(s[i]) <= prec(st.top()))
 			{
 				char c = st.top();
 				st.pop();
@@ -72,7 +72,7 @@ string infixToPostfix(string s)
 
 	}
 	//Pop all the remaining elements from the stack
-	while (st.top() != 'N')
+	while (st.top() != '#')
 	{
 		char c = st.top();
 		st.pop();

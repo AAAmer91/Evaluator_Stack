@@ -2,6 +2,18 @@
 #include "evaluatePostfix.h"
 #include "Stack_Class.h"
 #include <string>
+#include <vector>
+
+extern vector<pair<char, int>> vartable;
+
+int replacevariable(char c) {
+	for (auto it = vartable.begin(); it != vartable.end(); it++)
+	{
+		if (it->first == c)
+			return it->second;
+	}
+
+}
 
 int evaluatePostfix(string exp)
 {
@@ -14,7 +26,11 @@ int evaluatePostfix(string exp)
 	
 				// If the scanned character is an operand (number here),
 				// push it to the stack.
-				if (isdigit(exp[i])){
+				if ((exp[i] >= 'a' && exp[i] <= 'z') || (exp[i] >= 'A' && exp[i] <= 'Z')) {
+					int operand = replacevariable(exp[i]);
+					st.push(operand);
+				}
+				else if (isdigit(exp[i])){
 					operand = (operand * 10) + (exp[i] - '0');
 					if (isdigit(exp[i + 1])) {
 						idigit++;
