@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="evaluatePostfix.h" />
+    <ClInclude Include="Var_Class.h" />
     <ClInclude Include="Infix2Postfix.h" />
     <ClInclude Include="Stack_Class.h" />
     <ClInclude Include="stdafx.h" />
@@ -157,6 +158,7 @@
     <ClCompile Include="evaluatePostfix.cpp" />
     <ClCompile Include="Infix2Postfix.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Var_Class.cpp" />
     <ClCompile Include="Stack_Class.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

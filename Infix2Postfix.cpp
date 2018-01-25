@@ -23,7 +23,7 @@ string infixToPostfix(string s)
 {
 	stack st;
 	st.push('#');
-	int l = s.length();
+	size_t l = s.length();
 	string ns;
 	for (int i = 0; i < l; i++)
 	{

@@ -5,7 +5,7 @@ using namespace std;
 
 
 // PUSH Operation
-void stack::push(int data)
+void stack::push(double data)
 {
 	struct node *ptr;
 	ptr = new node;
@@ -18,7 +18,7 @@ void stack::push(int data)
 }
 
 // POP Operation
-int stack::pop()
+double stack::pop()
 {
 	struct node *temp;
 	if (ptop == NULL)
@@ -33,7 +33,7 @@ int stack::pop()
 }
 
 // top of the stack
-int stack::top()
+double stack::top()
 {
 
 	if (ptop != NULL)

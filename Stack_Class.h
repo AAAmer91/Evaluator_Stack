@@ -5,7 +5,7 @@
 
 struct node
 {
-	int data;
+	double data;
 	struct node *next;
 };
 
@@ -18,8 +18,8 @@ public:
 	{
 		ptop = NULL;
 	}
-	void push(int data); // to insert an element
-	int pop();  // to delete an element
-	int top(); // to show the stack
+	void push(double data); // to insert an element
+	double pop();  // to delete an element
+	double top(); // to show the stack
 	int isEmpty();
 };
